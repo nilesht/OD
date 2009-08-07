@@ -140,11 +140,11 @@ function addNewRowSampleDrop()
 	row += "<tr>";
 	row += "<td>Product Category </td>";
 	row += "<td><input name='CallSampDropNew.Primary Product Line Name' id='CallSampDropNew.Primary Product Line Name' maxlength='100' class='inputReadOnly' tabindex='-1' readonly='readonly' type='text' value='' size='20' /></td>";
-	row += "<td><p style='color:red'>Product* </p></td>";
+	row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNameSamDrop'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Lot # </td>";
 	row += "<td><input name='CallSampDropNew.LOT Name' size='5' maxlength='20' type='text' value='' class='inputControl' id='CallSampDropNew.LOT Name' /></td></td>";
-	row += "<td><p style='color:red'>Quantity* </p></td>";
+	row += "<td><span style='color:red' class='requiredText'>Quantity* </span></td>";
 	row += "<td><input name='CallSampDropNew.Quantity' size='20' type='text' value='' class='inputControl' id='CallSampDropNew.Quantity' /></td>";
 	row += "<td><input type='button' name='delete' id='ROWID' value='delete' onclick= rowDelete();></input></td>";
 	row += "</tr></table></td></tr>";	
@@ -163,11 +163,11 @@ function addNewRowProdDet(){
 	var row = "<tr width='100%'><td colspan='3'>";
 	row += "<table>";
 	row += "<tr>";
-	row += "<td><p style='color:red'>Product* </p></td>";
+	row += "<td><span style='color:red' class='requiredText'>Product* </span></td>";
 	row += "<td><select STYLE='width: 130px' id='prodNamePrDet'><option value='none'></option><option value='Arcoxia 120mg'>Arcoxia 120mg</option><option value='Crocin'>Crocin</option><option value='Omez'>Omez</option><option value='Singulair 10x100mg'>Singulair 10x100mg</option><option value='Singulair 20x40mg'>Singulair 20x40mg</option></select></td>";
 	row += "<td>Priority: </td>";
 	row += "<td><input name=CallProdDetailNew.Priority size='5' tabindex='4' type='text' value='' class=inputControl id='CallProdDetailNew.Priority' /></td>";
-	row += "<td><p style='color:red'>Indication*:</p></td>";
+	row += "<td><span style='color:red' class='requiredText'>Indication*:</span></td>";
 	row += "<td><select name='CallProdDetailNew.Indication' tabindex='5' onchange=onDropDownChange (this); class=inputControl id='CallProdDetailNew.Indication'><option /><option value='Allergy'>Allergy</option><option value='Asthma'>Asthma</option><option value='Arrhythmia'>Arrhythmia</option><option value='Heart Failure'>Heart Failure</option><option value='Syncope'>Syncope</option><option value='Other'>Other</option></select></td>";
 	row += "<td>Issues:</td>";
 	row += "<td><select name='CallProdDetailNew.Issue' tabindex='6' onchange=onDropDownChange (this); class='inputControl' id='CallProdDetailNew.Issue'><option /><option value='Side Effects'>Side Effects</option><option value='Efficacy'>Efficacy</option><option value='Cost vs. Generics'>Cost vs. Generics</option><option value='Price'>Price</option></select></td>";
