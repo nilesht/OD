@@ -1,13 +1,13 @@
 (function(){
 del_footer_button(1);
 add_footer_button(1,'Save','saveMidway1()','_top',40);
-del_footer_button(2);
-add_footer_button2(2,'Save & New Call','saveandnewMidway1()','_top',40);
+//del_footer_button(2);
+//add_footer_button2(2,'Save & New Call','saveandnewMidway1()','_top',40);
 
-delete_button('Call Details', 1);
-delete_button('Call Details', 1);
-createNewSaveButton('Call Details',1,'Save','saveMidway1()','_top',40);
-createNewSaveButton2('Call Details',2,'Save & New Call','saveandnewMidway1()','_top',40);
+delete_button('Call Detail', 1);
+//delete_button('Call Details', 1);
+createNewSaveButton('Call Detail',1,'Save','saveMidway1()','_top',40);
+//createNewSaveButton2('Call Details',2,'Save & New Call','saveandnewMidway1()','_top',40);
 addProdDeailedSec();
 addSamplesDropSec();
 
@@ -52,7 +52,7 @@ function add_footer_button(position, button_text, url, target_window, features) 
     }
     return false;
 }
-
+/*
 function add_footer_button2(position, button_text, url, target_window, features) {
     var i;
     var mytables = document.getElementsByTagName("table");
@@ -76,7 +76,7 @@ function add_footer_button2(position, button_text, url, target_window, features)
     }
     return false;
 }
-
+*/
 function delete_button(section_name, position) {
     var i;
     var ih;
@@ -132,7 +132,7 @@ function createNewSaveButton(section_name, position, button_text, url, target_wi
 	}
 	return false;
 }
-
+/*
 function createNewSaveButton2(section_name, position, button_text, url, target_window, features){
 	var i;
 	var ih0;
@@ -149,7 +149,6 @@ function createNewSaveButton2(section_name, position, button_text, url, target_w
 				{
 				var tr = tabs[i].getElementsByTagName("tr");
 				var newtd = tr[0].insertCell(position);
-//POSSIBLE ERROR BECAUSE OF ID
 				newtd.innerHTML = "<div id='head2' class='buttonTD' " +
 				"id='testSave' " +  
 				"onmouseover='toggleNavButton(this);' " +
@@ -165,16 +164,17 @@ function createNewSaveButton2(section_name, position, button_text, url, target_w
 	}
 	return false;
 }
-
+*/
 
 function addSamplesDropSec(){
+	
 	var newTable = "<tr><td colspan='5'>";
 	newTable += "<table class='ctb' cellspacing='0' cellpadding='0' id='sampleDrop'>";
 	newTable += "<tr><td>Samples Dropped</td>";
 	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='sampleDropdiv' onclick='addNewRowSampleDrop();'>New</div></td>";
 	newTable += "<td width='100%'></td></tr>";
 	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+	jQuery("[id='ContactCallEditForm.VONDMED Next Call']").parent().parent().parent().append(newTable);
 }
 
 function addProdDeailedSec(){
@@ -184,7 +184,7 @@ function addProdDeailedSec(){
 	newTable += "<td style='align:left'><div class='buttonChildTitleBarTD' id='testdiv' onclick='addNewRowProdDet();'>New</div></td>";
 	newTable += "<td width='100%'></td></tr>";
 	newTable += "<tr><td colspan='3'></td></tr></table></td></tr>";
-	jQuery("[id='ContactCallInsert.VONDMED Next Call']").parent().parent().parent().append(newTable);
+	jQuery("[id='ContactCallEditForm.VONDMED Next Call']").parent().parent().parent().append(newTable);
 }
 
 })();
@@ -247,8 +247,8 @@ function saveMidway1()
 {
 document.getElementById('foot').disabled=true;
 document.getElementById('head').disabled=true;
-document.getElementById('foot2').disabled=true;
-document.getElementById('head2').disabled=true;
+//document.getElementById('foot2').disabled=true;
+//document.getElementById('head2').disabled=true;
 saveFlg=0;
 //alert('Inside saveMidway1');
 saveAllDetails();
@@ -257,11 +257,13 @@ function saveMidway2()
 {
 document.getElementById('foot').disabled=false;
 document.getElementById('head').disabled=false;
-document.getElementById('foot2').disabled=false;
-document.getElementById('head2').disabled=false;
+//document.getElementById('foot2').disabled=false;
+//document.getElementById('head2').disabled=false;
 //alert('Inside SaveMidway2');
 saveFlg=1;
 }
+
+/*
 function saveandnewMidway1()
 {
 newbutton=1;
@@ -281,7 +283,7 @@ document.getElementById('head').disabled=false;
 saveFlg=1;
 //return;
 }
-
+*/
 
 
 function saveAllDetails()
@@ -290,7 +292,7 @@ function saveAllDetails()
 		loadCallDetailsPage();
 	});
 }
-
+/*
 function saveAndNewAllDetails()
 {
 	//alert("Inside Save All details");
@@ -305,6 +307,7 @@ function newcall(){
 window.location.reload();
 //doNavigate("https://secure-ausomxapa.crmondemand.com/OnDemand/user/ContactCallInsert?OMCR0=AAPA-2WJ5PW&OMTGT=ContactCallInsert&OMTHD=ActivityNewNav&OMCBO=Contact&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest3%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2WJ5PW&OCNOEDITTYPE=Y&OCTYPE=")
 }
+*/
 
 function createWebSerConn(callback)
 {
@@ -355,26 +358,27 @@ function loadCallDetailsPage()
 
 function createNewCallActivity(callback){
 	//alert("Inside Create New Activity : This will return Activity Id");
-	var ownerId = document.getElementById('ContactCallInsert.Owner Id').value;
-	var contactPerId = document.getElementById('ContactCallInsert.Contact Per Id').value;
-	var subjectValue = document.getElementById('ContactCallInsert.Description').value;
-	var objectiveVal = document.getElementById('ContactCallInsert.VONDMED Call').value;
-	var startTime = document.getElementById('ContactCallInsert.Planned').value;
-	var accId = document.getElementById('ContactCallInsert.Account Id').value;
-	//var addressVal = document.getElementById('ContactCallInsert.Personal Location Id').value;
-	var smartCallId = document.getElementById('ContactCallInsert.Template Id').value;
-	var endTime = document.getElementById('ContactCallInsert.Planned Completion').value;
-	var typeVal = document.getElementById('ContactCallInsert.Type').value;
-	var statusVal = document.getElementById('ContactCallInsert.Status').value;
-	var durationVal = document.getElementById('ContactCallInsert.VONDMED Calc Duration').value;
-	var carrencyVal = document.getElementById('ContactCallInsert.Currency Code').value;
-	var displayVal = document.getElementById('ContactCallInsert.Display').value;
-	var refId = document.getElementById('ContactCallInsert.Sample Reference Number').value;
-	var costVal = document.getElementById('ContactCallInsert.Associated Cost').value;
-	var paperSignVal = document.getElementById('ContactCallInsert.VONDMED Paper Signature').value;
-	var privateVal = document.getElementById('ContactCallInsert.Private').value;
-	var descVal = document.getElementById('ContactCallInsert.Comment').value;
-	var nextCallVal = document.getElementById('ContactCallInsert.VONDMED Next Call').value;
+	var ownerId = document.getElementById('ContactCallEditForm.Owner Id').value;
+	var contactPerId = document.getElementById('ContactCallEditForm.Id').value;
+	//var contactPerId = 'AAPA-2YBYRF';
+	var subjectValue = document.getElementById('ContactCallEditForm.Description').value;
+	var objectiveVal = document.getElementById('ContactCallEditForm.VONDMED Call').value;
+	var startTime = document.getElementById('ContactCallEditForm.Planned').value;
+	var accId = document.getElementById('ContactCallEditForm.Account Id').value;
+	//var addressVal = document.getElementById('ContactCallEditForm.Personal Location Id').value;
+	var smartCallId = document.getElementById('ContactCallEditForm.Template Id').value;
+	var endTime = document.getElementById('ContactCallEditForm.Planned Completion').value;
+	var typeVal = document.getElementById('ContactCallEditForm.Type').value;
+	var statusVal = document.getElementById('ContactCallEditForm.Status').value;
+	var durationVal = document.getElementById('ContactCallEditForm.VONDMED Calc Duration').value;
+	var carrencyVal = document.getElementById('ContactCallEditForm.Currency Code').value;
+	var displayVal = document.getElementById('ContactCallEditForm.Mod Id').value;
+	var refId = document.getElementById('ContactCallEditForm.Sample Reference Number').value;
+	var costVal = document.getElementById('ContactCallEditForm.Associated Cost').value;
+	var paperSignVal = document.getElementById('ContactCallEditForm.VONDMED Paper Signature').value;
+	var privateVal = document.getElementById('ContactCallEditForm.Private').value;
+	var descVal = document.getElementById('ContactCallEditForm.Comment').value;
+	var nextCallVal = document.getElementById('ContactCallEditForm.VONDMED Next Call').value;
 
 	var startTimeMod;	
 	var endTimeMod;
@@ -399,8 +403,8 @@ function createNewCallActivity(callback){
 		endTimeMod = '';
 	}
 
-	var contactId = $("input[id='ContactCallInsert.Contact Full Name']").val();
-	var ownerVal = $("input[id='ContactCallInsert.Assigned To']").val();
+	var contactId = $("input[id='ContactCallEditForm.Contact Full Name']").val();
+	var ownerVal = $("input[id='ContactCallEditForm.Assigned To']").val();
 	
 	var prodIDC='Test';
 	var prodIDC2='Test';
@@ -421,18 +425,18 @@ function createNewCallActivity(callback){
 		|| (endTime == null || endTime == '') || (typeVal == null || typeVal == '') || (contactId == null || contactId == '') 
 		|| (ownerVal == null || ownerVal == ''))
 	{
-		validateSubmit('ContactCallInsert','\/OnDemand\/user\/ContactCallInsert?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallInsert&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
-		if(newbutton==1)
-		    saveandnewMidway2();
-		else	
+		validateSubmit('ContactCallEditForm','\/OnDemand\/user\/ContactCallEditForm?OMCR0='+contactPerId+'&OMTHD=Save&OMTGT=ContactCallEditForm&OMCBO=Contact&OCNOEDITTYPE=Y&OMRET0=ContactDetail%3focTitle%3dIDC%2bTest2%26OMTGT%3dContactDetailForm%26OMTHD%3dContactDetailNav%26ocEdit%3dY%26OCTYPE%3d%26ocTitleField%3dFull%2bName%26ContactDetailForm.Id%3dAAPA-2TQZ7P&OCTYPE=', this);
+		//if(newbutton==1)
+		//    saveandnewMidway2();
+		//else	
 			saveMidway2();
 	}
 	else if ((prodIDC == null || prodIDC == '' || prodIDC == 'none') && (prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none'))
 	{
-		if(newbutton==1)
-		    saveandnewMidway2();
-		else	
-		saveMidway2();
+		//if(newbutton==1)
+		//    saveandnewMidway2();
+		//else	
+			saveMidway2();
 		//alert('inside 2nd elseif');
 	div1.style.visibility="visible";
 	div2.style.visibility="visible";
@@ -441,43 +445,44 @@ function createNewCallActivity(callback){
 	{	
 	//alert('Inside 3rd Else if');
 	div1.style.visibility="visible";
-	if(newbutton==1)
-		    saveandnewMidway2();
-		else	
-		saveMidway2();
+	//if(newbutton==1)
+		//    saveandnewMidway2();
+		//else	
+			saveMidway2();
 	}
 	else if(prodIDC2 == null || prodIDC2 == '' || prodIDC2 == 'none')
 	{   div2.style.visibility="visible";  
-	if(newbutton==1)
-		    saveandnewMidway2();
-		else	
-		saveMidway2();
+	//if(newbutton==1)
+		//    saveandnewMidway2();
+		//else	
+			saveMidway2();
 	}
 	else if ((sampIDC == null || sampIDC == '' || sampIDC == 'none') && (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none'))
 	{
-		if(newbutton==1)
-		    saveandnewMidway2();
-		else	
-		    saveMidway2();
+		//if(newbutton==1)
+		//    saveandnewMidway2();
+		//else	
+			saveMidway2();
 	div3.style.visibility="visible"; 
 	div4.style.visibility="visible"; 
 	}
 	else if (sampIDC == null || sampIDC == '' || sampIDC == 'none')
 	{ div3.style.visibility="visible"; 
-	if(newbutton==1)
-		    saveandnewMidway2();
-		else	
-		saveMidway2();
+	//if(newbutton==1)
+		//    saveandnewMidway2();
+		//else	
+			saveMidway2();
 	}
 	else if (sampIDC2 == null || sampIDC2 == '' || sampIDC2 == 'none')
 	{ div4.style.visibility="visible"; 
-	 if(newbutton==1)
-		    saveandnewMidway2();
-		else	
-		saveMidway2();
+	 //if(newbutton==1)
+		//    saveandnewMidway2();
+		//else	
+			saveMidway2();
 	}
 	else{
 		var fields = {
+		    ActivityId: "" + contactPerId + "",
 			Objective: "" + objectiveVal + "",
 			Subject: "" + subjectValue + "",
 			OwnerId: "" + ownerId + "",
@@ -487,7 +492,7 @@ function createNewCallActivity(callback){
 			Status: "" + statusVal + "",
 			Duration:  "" + durationVal + "",
 			CurrencyCode: "" + carrencyVal + "",
-			Display: "" + displayVal + "",
+			//Display: "" + displayVal + "",
 			RefNum: "" + refId + "",
 			Cost: "" + costVal + "",
 			PaperSign: "" + paperSignVal + "",
@@ -498,36 +503,37 @@ function createNewCallActivity(callback){
 			EndTime: "" + endTimeMod + ""
 		};
 		
-		var fieldsCont = {
+	/*	var fieldsCont = {
 			ContactId: "" + contactPerId + ""
-		};
-		createActivityIdUsingWeb(fields, fieldsCont, function(){
+		};*/
+		createActivityIdUsingWeb(fields,function(){
 			callback.call();
 		});	
 	}
 }
 
-function createActivityIdUsingWeb(fields, fieldsCont, callback)
+function createActivityIdUsingWeb(fields, callback)
 {
 	var activityId;
+	//alert('Inside createActivityUsingWeb');
 	createWebSerConn(function(xhr, textStatus){
-		var soapAction = 'document/urn:crmondemand/ws/contact/10/2004:ContactInsertChild';
+		var soapAction = 'document/urn:crmondemand/ws/activity/10/2004:Activity_Update';
 		var soapRequestTemplate = '' +
 			'<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">' +
 			'   <soapenv:Header/>' +
 			'   <soapenv:Body>' +
-			'      <ContactWS_ContactInsertChild_Input xmlns="urn:crmondemand/ws/contact/10/2004">' +
-			'         <ListOfContact>' +
-			'            <Contact>' +
-			'               <%=fieldsCont%>' +
+			'      <ActivityNWS_Activity_Update_Input xmlns="urn:crmondemand/ws/activity/10/2004">' +
+		//	'         <ListOfContact>' +
+		//	'            <Contact>' +
+		//	'               <%=fieldsCont%>' +
 			' 		        <ListOfActivity>' +
-			'					<Activity>'	+
-			'		              <%=fields%>' +				
+			'         			<Activity>'	+
+			'		               <%=fields%>' +				
 			'					</Activity>' +				
 			'         		</ListOfActivity>' +				
-			'            </Contact>' +
-			'         </ListOfContact>' +
-			'      </ContactWS_ContactInsertChild_Input>' +
+		//	'            </Contact>' +
+		//	'         </ListOfContact>' +
+			'      </ActivityNWS_Activity_Update_Input>' +
 			'   </soapenv:Body>' +
 			'</soapenv:Envelope>';		
 
@@ -536,15 +542,16 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 			fieldsXML += '<' + fieldName + '><![CDATA[' + fields[fieldName] + ']]></' + fieldName + '>';
 		}
 		
-		var fieldsXMLCont = '';
+	/*	var fieldsXMLCont = '';
 		for (fieldNameCont in fieldsCont) {
 			fieldsXMLCont += '<' + fieldNameCont + '>' + fieldsCont[fieldNameCont] + '</' + fieldNameCont + '>';
-		}			
+		}	*/
 
 		var soapRequest = soapRequestTemplate.replace("<%=fields%>", fieldsXML);	
-		var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
+		//var soapRequestFinal = soapRequest.replace("<%=fieldsCont%>", fieldsXMLCont);	
 
 		//alert("soapRequest : " + soapRequestFinal);
+		//alert("soapRequest : " + soapRequest);
 
 		try{
 			jQuery.ajax({
@@ -552,7 +559,7 @@ function createActivityIdUsingWeb(fields, fieldsCont, callback)
 						type: 'POST',
 						contentType: 'text/xml',
 						dataType: 'xml',
-						data: soapRequestFinal,
+						data: soapRequest,
 						beforeSend: function(xhr) {
 							//alert("Before sending request to insert : " + xhr);
 							xhr.setRequestHeader('SOAPAction', '"' + soapAction + '"');  
